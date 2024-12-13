@@ -6,10 +6,10 @@
       "use": "@vercel/node"
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/",
-      "destination": "https://top-shop.logiall.com"
+      "src": "/.*",
+      "dest": "https://top-shop.logiall.com"
     }
   ]
 }
