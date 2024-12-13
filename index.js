@@ -15,6 +15,9 @@ app.use(
         proxyReq.setHeader('version', 'staging');
       },
     },
+    pathRewrite: {
+      '^/': '/', // 경로 재작성
+    },
   })
 );
 
