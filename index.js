@@ -14,14 +14,11 @@ app.use(
         proxyReq.setHeader('version', 'staging');
       },
     },
-    pathRewrite: {
-      '/': '', // /proxy를 제거하고 타겟 URL로 전달
-    },
   })
 );
 
 // 기본 포트 설정
-const PORT = 3030;
+const PORT = 3000;
 app.listen(PORT, () => {
   console.log(`Proxy server is running on http://localhost:${PORT}`);
 });
