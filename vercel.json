@@ -1,11 +1,5 @@
 {
   "version": 2,
   "regions": ["icn1"],
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "https://top-shop.logiall.com"
-    }
-  ]
+  "builds": [{ "src": "*.js", "use": "@vercel/node" }]
 }
