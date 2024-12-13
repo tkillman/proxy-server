@@ -10,10 +10,10 @@ import { createProxyMiddleware } from 'http-proxy-middleware';
 import NextCors from 'nextjs-cors';
 
 const apiProxy = createProxyMiddleware({
-  target: 'https://api.pinboard.in',
+  target: 'https://top-shop.logiall.com',
   changeOrigin: true,
   pathRewrite: {
-    '^/api': '', // Strip "/api" from the URL
+    '^/': '', // Strip "/api" from the URL
   },
   onProxyRes(proxyRes) {
     (proxyRes.headers['access-control-allow-origin'] = '*'),
