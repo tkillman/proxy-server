@@ -8,7 +8,7 @@
      {
        "src": "/redirect",
        "status": 308,
-       "headers": { "Location": "https://daum.net/" }
+       "headers": { "Location": "https://top-shop.logiall.com/" }
      }
    ]
 }
