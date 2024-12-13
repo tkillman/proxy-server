@@ -2,16 +2,6 @@
   "version": 2,
   "regions": ["icn1"],
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
-  "headers": [
-    { "source": "/(.*)"
-      ,"headers": [
-        {
-          "key": "version",
-          "value": "staging"
-        }
-      ]
-    }
-  ],
   "redirects": [
     {
       "source": "/(.*)",
