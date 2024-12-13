@@ -3,11 +3,5 @@
   "regions": ["icn1"],
   "builds": [
     { "src": "*.js", "use": "@vercel/node" }
-  ],
-  "rewrites": [
-    {
-      "source": "/:path*",
-      "destination": "https://naver.com/:path*"
-    }
   ]
 }
