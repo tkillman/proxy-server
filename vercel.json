@@ -7,7 +7,7 @@
    "routes": [
      {
        "src": "/.*",
-       "dest": "https://top-shop.logiall.com/"
+       "dest": "https://top-shop.logiall.com"
      }
    ]
 }
