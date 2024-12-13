@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "https://top-shop.logiall.com/$1"
+      "source": "/:path*",
+      "destination": "https://top-shop.logiall.com/:path*"
     }
   ]
 }
