@@ -27,6 +27,10 @@ app.listen(PORT, () => {
   console.log(`Proxy server is running on http://localhost:${PORT}`);
 });
 
+app.get('/', (req, res) => {
+  res.status(200).send('hello world');
+});
+
 app.get('/health', (req, res) => {
-  res.send('ok');
+  res.status(200).send('ok');
 })

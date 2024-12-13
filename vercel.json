@@ -1,9 +1,4 @@
 {
   "version": 2,
-  "routes": [
-    {
-      "src": "/.*",
-      "dest": "https://top-shop.logiall.com"
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
