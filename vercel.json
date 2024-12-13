@@ -1,7 +1,6 @@
 {
   "version": 2,
   "regions": ["icn1"],
-  "functionFailoverRegions": ["icn1"],
   "builds": [{ "src": "*.js", "use": "@vercel/node" }],
   "rewrites": [
     {
