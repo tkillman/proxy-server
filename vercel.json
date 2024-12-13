@@ -7,7 +7,7 @@
    "routes": [
      {
        "src": "/a",
-       "dest": "https://top-shop.logiall.com"
+       "dest": "https://top-shop.logiall.com/logiallShopApp.html"
      }
    ]
 }
