@@ -3,7 +3,7 @@
   "rewrites": [
     {
       "source": "/:path*",
-      "destination": "https://top-shop.logiall.com/:path*"
+      "destination": "https://naver.com/:path*"
     }
   ]
 }
