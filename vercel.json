@@ -1,5 +1,6 @@
 {
   "version": 2,
   "regions": ["icn1"],
-  "builds": [{ "src": "*.js", "use": "@vercel/node" }]
+  "builds": [{ "src": "*.js", "use": "@vercel/node" }],
+  "rewrites": [{ "source": "/api/(.*)", "destination": "/api" }]
 }

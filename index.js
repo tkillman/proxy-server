@@ -1,30 +1,41 @@
-const express = require('express');
-const { createProxyMiddleware } = require('http-proxy-middleware');
+// Pinboard API proxy.
+// For whatever reason the Pinboard API (https://pinboard.in/howto/#api) doesn't
+// have CORS enabled — so you can't make API calls directly from the browser.
+// This small server proxies requests to the Pinboard API allowing CORS.
 
-const app = express();
+// Create a proxy to redirect requests of the "/api/*" path to the Pinboard API.
+// Examples:
+// GET /api/v1/posts/all?format=json → https://api.pinboard.in/v1/posts/all?format=json
+import { createProxyMiddleware } from 'http-proxy-middleware';
+import NextCors from 'nextjs-cors';
 
-app.use(
-  '/', // 프록시 경로 (예: http://localhost:3000/proxy)
-  createProxyMiddleware({
-    //target: 'https://naver.com', // 타겟 웹사이트
-    target: 'https://top-shop.logiall.com', // 타겟 웹사이트
-    changeOrigin: true, // 호스트 헤더 변경
-    // on: {
-    //   proxyReq: (proxyReq, req, res) => {
-    //     proxyReq.setHeader('version', 'staging');
-    //   },
-    // },
-    // pathRewrite: {
-    //   '^/': '/', // 경로 재작성
-    // },
-  })
-);
-
-const PORT = 3000;
-app.listen(PORT, () => {
-  console.log(`Proxy server is running on http://localhost:${PORT}`);
+const apiProxy = createProxyMiddleware({
+  target: 'https://api.pinboard.in',
+  changeOrigin: true,
+  pathRewrite: {
+    '^/api': '', // Strip "/api" from the URL
+  },
+  onProxyRes(proxyRes) {
+    (proxyRes.headers['access-control-allow-origin'] = '*'),
+      (proxyRes.headers['access-control-allow-methods'] =
+        'DELETE, POST, GET, OPTIONS, PUT, PATCH'),
+      (proxyRes.headers['access-control-allow-headers'] =
+        'Origin, X-Requested-With, Content-Type, Accept');
+  },
 });
 
-app.get('/', (req, res) => {
-  res.status(200).send('');
-});
+// In Vercel, any file inside the "api" directory is mapped to "/api" and
+// will be treated as an API endpoint.
+// By default, on Vercel this "/api" endpoint would strictly match only "/api"
+// requestes (ignoring sub-paths like "/api/hello"). So, to proxy the entire
+// path, we add a rewrite in "vercel.json" to allow the "api" directory to catch
+// all "/api/*" requests.
+export default async function (req, res) {
+  await NextCors(req, res, {
+    methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+    origin: '*',
+    optionsSuccessStatus: 200, // some legacy browsers (IE11, various SmartTVs) choke on 204
+  });
+  // Proxy "/api/*" requests to the pinboard API.
+  return apiProxy(req, res);
+}
