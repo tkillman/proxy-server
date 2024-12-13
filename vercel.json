@@ -6,9 +6,8 @@
   ],
    "routes": [
      {
-       "src": "/redirect",
-       "status": 308,
-       "headers": { "Location": "https://top-shop.logiall.com/" }
+       "src": "/.*",
+       "dest": "https://top-shop.logiall.com/"
      }
    ]
 }
