@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "redirects": [
+  "routes": [
     {
-      "source": "/(.*)",
-      "destination": "https://top-shop.logiall.com",
-      "permanent": false
+      "src": "/(.*)",
+      "status": 307,
+      "headers": {
+        "version": "staging",
+        "Location": "https://top-shop.logiall.com/"
+      }
     }
   ]
 }
