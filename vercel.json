@@ -1,1 +1,6 @@
-{ "version": 2, "rewrites": [{ "source": "/(.*)", "destination": "/api" }] }
+{
+  "version": 2,
+  "redirects": [
+    { "source": "/(.*)", "destination": "https://top-shop.logiall.com" }
+  ]
+}
