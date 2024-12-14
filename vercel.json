@@ -1,6 +1,10 @@
 {
   "version": 2,
   "redirects": [
-    { "source": "/(.*)", "destination": "https://top-shop.logiall.com" }
+    {
+      "source": "/(.*)",
+      "destination": "https://top-shop.logiall.com",
+      "permanent": false
+    }
   ]
 }
