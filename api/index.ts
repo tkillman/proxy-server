@@ -5,7 +5,7 @@ const app = express();
 
 //Proxy 설정
 app.use(
-  '/', // 프록시 경로 (예: http://localhost:3000/proxy)
+  '/api', // 프록시 경로 (예: http://localhost:3000/proxy)
   createProxyMiddleware({
     //target: 'https://naver.com', // 타겟 웹사이트
     target: 'https://top-shop.logiall.com', // 타겟 웹사이트
