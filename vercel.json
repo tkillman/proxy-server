@@ -1,13 +1,3 @@
 {
-  "version": 2,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "status": 308,
-      "headers": {
-        "version": "staging",
-        "Location": "https://top-shop.logiall.com/"
-      }
-    }
-  ]
+  "version": 2
 }
