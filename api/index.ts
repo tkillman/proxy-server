@@ -10,6 +10,10 @@ const proxyMiddleware = createProxyMiddleware<Request, Response>({
 
 app.listen(3000, () => console.log('Server ready on port 3000.'));
 
-app.use('/', proxyMiddleware);
+app.use('/', (req, res) => {
+  res.status(200).send('Hello, World!');
+});
+
+app.use('/api', proxyMiddleware);
 
 module.exports = app;
