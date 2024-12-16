@@ -5,5 +5,5 @@
   "devCommand": "npm run start",
   "installCommand": "npm install",
   "builds": [{ "src": "dist/index.js", "use": "@vercel/node" }],
-  "rewrites": [{ "source": "/api", "destination": "/api" }]
+  "rewrites": [{ "source": "/(.*)", "destination": "/api" }]
 }

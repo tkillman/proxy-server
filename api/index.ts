@@ -15,18 +15,18 @@ const app = express();
 // });
 
 // app.use('/', proxyMiddleware);
-app.get("/", async (req, res) => {
+app.get("/api", async (req, res) => {
   res.status(200).send("Hello, world!");
 });
 
-app.get("/api", async (req, res) => {
-  try {
-    const response = await axios.get("https://top-shop.logiall.com"); // 외부 URL
-    res.status(response.status).send(response.data); // 클라이언트에게 전달
-  } catch (error) {
-    res.status(500).send("Error fetching the external page");
-  }
-});
+// app.get("/api", async (req, res) => {
+//   try {
+//     const response = await axios.get("https://top-shop.logiall.com"); // 외부 URL
+//     res.status(response.status).send(response.data); // 클라이언트에게 전달
+//   } catch (error) {
+//     res.status(500).send("Error fetching the external page");
+//   }
+// });
 
 app.listen(3000, () => console.log("Server ready on port 3000."));
 
