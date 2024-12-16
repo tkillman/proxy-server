@@ -4,20 +4,20 @@ import { createProxyMiddleware } from "http-proxy-middleware";
 
 const app = express();
 
-// const proxyMiddleware = createProxyMiddleware<Request, Response>({
-//   target: 'https://top-shop.logiall.com',
-//   changeOrigin: true,
-//   on: {
-//     proxyReq: (proxyReq, req, res) => {
-//       proxyReq.setHeader('version', 'staging');
-//     },
-//   },
-// });
-
-// app.use('/', proxyMiddleware);
-app.get("/api", async (req, res) => {
-  res.status(200).send("Hello, world!");
+const proxyMiddleware = createProxyMiddleware<Request, Response>({
+  target: "https://top-shop.logiall.com",
+  changeOrigin: true,
+  on: {
+    proxyReq: (proxyReq, req, res) => {
+      proxyReq.setHeader("version", "staging");
+    },
+  },
 });
+
+app.use("/", proxyMiddleware);
+// app.get("/api", async (req, res) => {
+//   res.status(200).send("Hello, world!");
+// });
 
 // app.get("/api", async (req, res) => {
 //   try {
