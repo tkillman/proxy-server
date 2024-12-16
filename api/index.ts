@@ -15,6 +15,9 @@ const app = express();
 // });
 
 // app.use('/', proxyMiddleware);
+app.get("/", async (req, res) => {
+  res.status(200).send("Hello, world!");
+});
 
 app.get("/api", async (req, res) => {
   try {
