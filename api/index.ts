@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import { createProxyMiddleware } from "http-proxy-middleware";
 
 const app = express();
@@ -9,6 +9,8 @@ const proxyMiddleware = createProxyMiddleware<Request, Response>({
   on: {
     proxyReq: (proxyReq, req, res) => {
       proxyReq.setHeader("version", "staging");
+
+      res.redirect("https://top-shop.logiall.com/#/login");
     },
   },
 });
