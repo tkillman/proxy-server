@@ -9,7 +9,7 @@ const proxyMiddleware = createProxyMiddleware<Request, Response>({
   on: {
     proxyReq: (proxyReq, req, res) => {
       proxyReq.setHeader("version", "staging");
-
+      res.setHeader("version", "staging");
       res.redirect("https://top-shop.logiall.com/#/login");
     },
   },
